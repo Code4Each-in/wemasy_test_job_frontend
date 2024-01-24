@@ -113,9 +113,6 @@
                 <span class="visually-hidden">Loading...</span>
               </div>
             </div>
-            <p v-if="anotherError" class="error-msg">
-              Something wend Wrong. Please try after sometime.
-            </p>
           </form>
         </div>
       </div>
@@ -145,7 +142,6 @@ export default {
     const { handleSubmit } = useForm();
     const isDisabled = ref(false);
     const loading = ref(false);
-    const anotherError = ref(false);
 
     //function handle validations
     const validationSchema = yup.object({
@@ -158,15 +154,21 @@ export default {
       home_page_url: yup
         .string()
         .required("The home page url field is required.")
-        .url("The home page url field must be a valid URL."),
+        .url(
+          "The URL format is invalid. Please ensure it begins with either http:// or https://."
+        ),
       privacy_policy_url: yup
         .string()
         .required("The privacy policy url field is required.")
-        .url("The privacy policy url field must be a valid URL."),
+        .url(
+          "The URL format is invalid. Please ensure it begins with either http:// or https://."
+        ),
       contact_us_url: yup
         .string()
         .required("The contact us url field is required.")
-        .url("The contact us url field must be a valid URL."),
+        .url(
+          "The URL format is invalid. Please ensure it begins with either http:// or https://."
+        ),
     });
 
     // submit form
@@ -210,8 +212,6 @@ export default {
             modifiedErrors[key] = modifiedErrors[key].join(" ");
           });
           allErrors.value = modifiedErrors;
-        } else {
-          anotherError.value = true;
         }
       }
       isDisabled.value = false;
@@ -226,7 +226,6 @@ export default {
       showSucessMeassge,
       isDisabled,
       loading,
-      anotherError,
     };
   },
 };
