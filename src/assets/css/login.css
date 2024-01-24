@@ -1,0 +1,351 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-shadow: border-box;
+}
+
+section.sign-in {
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    padding: 70px 0px;
+    align-items: center;
+}
+
+
+.signin-form form {
+    padding: 30px 0px;
+}
+
+.signin-content {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    display: flex;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    width: 60%;
+    margin: 0px auto;
+    text-align: left;
+}
+
+.signin-image {
+    margin-left: 110px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+h2.form-title {
+    text-align: center;
+}
+
+.signin-form,
+.signin-image {
+    width: 80%;
+    overflow: hidden;
+}
+
+.signin-image figure {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.signin-image figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+.signup-image-link {
+    font-size: 20px;
+    /* color: #222; */
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #e72734;
+    font-weight: 600;
+}
+
+
+h2.form-title {
+    margin-bottom: 33px;
+    line-height: 1.66;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    color: #222;
+    font-size: 36px;
+}
+
+.register-form {
+    width: 100%;
+}
+
+.register-form .form-group {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.register-form .form-group label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    color: #222;
+}
+
+.material-icons-name {
+    font-size: 18px;
+}
+
+.register-form input {
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 25px;
+    font-family: Poppins;
+    box-sizing: border-box;
+}
+
+input::-moz-placeholder {
+    color: #999
+}
+
+input:-ms-input-placeholder {
+    color: #999
+}
+
+.signin-form {
+    /* margin-right: 90px; */
+    /* margin-left: 80px; */
+}
+
+.signin-image {
+    margin-left: 110px;
+    margin-right: 20px;
+    margin-top: 10px
+}
+
+input:-moz-placeholder {
+    color: #999
+}
+
+input:focus {
+    border-bottom: 1px solid #222
+}
+
+label.label-agree-term {
+    position: absolute;
+    top: 50%;
+    padding-left: 25px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+input#remember-me {
+    width: auto;
+    margin: 8px 0px 0px 0px;
+    display: flex;
+}
+
+#signin {
+    /* display: flex; */
+    width: auto;
+    /* justify-content: center; */
+    padding: 10px 60px;
+    margin: 40px auto 0px;
+}
+
+.form-submit {
+    display: inline-block;
+    background: #1d2b64;
+    color: #fff;
+    border-bottom: none;
+    width: auto;
+    padding: 15px 39px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+
+.signin-form .form-group label {
+    padding: 5px 0px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.signin-form .form-group {
+    padding-bottom: 15px;
+}
+
+.signin-form .form-control {
+    padding: 10px 12px;
+    color: lightslategray;
+    font-size: 16px;
+}
+
+p.success-msg {
+    margin-bottom: 0;
+    font-size: 20px;
+    color: #0c660c;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+p.error-msg {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: red;
+
+}
+
+.alert-simple.alert-success {
+    border: 1px solid rgba(36, 241, 6, 0.46);
+    background-color: rgb(7 149 66 / 12%);
+    box-shadow: 0px 0px 2px #259c08;
+    color: #197817;
+    /* text-shadow: 0px 0px #fbfdff; */
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.alert-success:hover {
+    background-color: rgba(7, 149, 66, 0.35);
+    transition: 0.5s;
+}
+
+.alert>.start-icon {
+    margin-right: 0;
+    min-width: 19px;
+    text-align: center;
+}
+
+.alert>.start-icon {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.fa-times {
+    -webkit-animation: blink-1 2s infinite both;
+    animation: blink-1 2s infinite both;
+}
+
+.greencross {
+    font-size: 18px;
+    color: #1d2b64;
+    text-shadow: none;
+}
+
+.close:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 16px 16px;
+    color: inherit;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.faa-tada.animated,
+.faa-tada.animated-hover:hover {
+    -webkit-animation: tada 2s linear infinite;
+    animation: tada 2s linear infinite;
+}
+
+/**
+ * ----------------------------------------
+ * animation blink-1
+ * ----------------------------------------
+ */
+@-webkit-keyframes blink-1 {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink-1 {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+
+@media screen and (max-width:1200px) {
+
+    .signin-content {
+        padding-top: 35px;
+        padding-bottom: 35px;
+        display: flex;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        width: 100%;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width:982px) {
+
+    .signin-form,
+    .signin-image {
+        width: auto;
+        overflow: hidden;
+    }
+
+    .signin-form {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+}
+
+.spinner-border {
+    margin-left: 15px;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -0.125em;
+    border: 0.25em solid #1d2b64;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: .75s linear infinite spinner-border;
+    animation: .75s linear infinite spinner-border;
+}
