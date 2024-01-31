@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Form from '../components/FormHtml.vue';
+import ShowVariations from '../components/ShowVariations.vue';
 
 const routes = [
     {
         path: '/',
-        component: Form,
+        component: ShowVariations,
     },
 ];
 

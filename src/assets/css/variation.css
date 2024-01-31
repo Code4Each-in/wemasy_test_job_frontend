@@ -1,0 +1,139 @@
+:root {
+    /* --primarColor1: #113383; */
+    --primarColor2: #fff;
+    --primaryColor4: #ff0000;
+    --primarColor3: #000;
+    /* --fontFamily: ui-sans-serif; */
+}
+
+.login-form h1 {
+    margin-bottom: 10px;
+    color: var(--primarColor3);
+    font-family: var(--fontFamily);
+}
+
+.login-container {
+    background-color: var(--primarColor2);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h1 {
+    margin-bottom: 10px;
+    color: var(--primarColor3);
+}
+
+.login-form p {
+    margin-bottom: 20px;
+    color: var(--primarColor3);
+    font-family: var(--fontFamily);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    padding: 15px;
+    border-radius: 8px !important;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--primarColor3);
+    outline: none;
+}
+
+.input-group label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #113383;
+    padding: 0px 0px 10px;
+    font-family: var(--fontFamily);
+}
+
+button.button-submit {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primarColor1);
+    color: var(--primarColor2);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: -3s;
+    margin-top: 20px;
+    font-family: var(--fontFamily);
+}
+
+button.button-submit:hover {
+    background-color: transparent;
+    border: 2px solid var(--primarColor1);
+    color: var(--primarColor1);
+}
+
+.bottom-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: var(--primarColor1);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.bottom-text p {
+    margin-bottom: 10px;
+}
+
+.bottom-text a {
+    color: var(--primarColor1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.bottom-text a:hover {
+    color: var(--primaryColor4);
+}
+
+.form-login {
+    padding: 70px 0px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .login-container {
+        background-color: var(--primarColor2);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        /* max-width: 400px; */
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .bottom-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        color: var(--primarColor1);
+        font-weight: 600;
+        font-size: 16px;
+    }
+}
