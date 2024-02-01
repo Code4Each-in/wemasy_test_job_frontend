@@ -85,7 +85,8 @@ export default {
       try {
         loading.value = true;
         const urlParams = new URLSearchParams(window.location.search);
-        let variation = urlParams.get("v") || "A";
+        let variation = urlParams.get("v") !== "B" ? "A" : "B";
+
         const response = await axios.get(
           "https://wemasyapi.code4each.com/api/variation/get",
           {
@@ -96,31 +97,31 @@ export default {
         );
         if (response.data && response.data.status === 200) {
           data.value = response.data.data[0];
-          document.documentElement.style.setProperty(
-            "--primarColor1",
-            data.value.color
-          );
-          document.documentElement.style.setProperty(
-            "--fontFamily",
-            data.value.font
-          );
-          document.documentElement.style.setProperty(
-            "--max-width",
-            data.value.max_width
-          );
-          document.documentElement.style.setProperty(
-            "--grid-col",
+          setGlobalValues(
+            data.value.color,
+            data.value.font,
+            data.value.max_width,
             data.value.grid_col
           );
-          primaryColor1.value = data.value.color;
-          loading.value = false;
         }
-        console.log(data.value);
       } catch (error) {
+        setGlobalValues();
         console.error("Error fetching data:", error);
       }
+      loading.value = false;
     };
 
+    const setGlobalValues = (
+      color = "#11835d",
+      font = "cursive",
+      max_width = "500px",
+      grid_col = "1fr"
+    ) => {
+      document.documentElement.style.setProperty("--primarColor1", color);
+      document.documentElement.style.setProperty("--fontFamily", font);
+      document.documentElement.style.setProperty("--max-width", max_width);
+      document.documentElement.style.setProperty("--grid-col", grid_col);
+    };
     const getInfo = async () => {
       // Get location using browser's Geolocation API
       let location = "";
@@ -156,6 +157,7 @@ export default {
       };
       formData.value = {};
     };
+
     onMounted(fetchData);
 
     return {
