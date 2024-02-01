@@ -1,48 +1,60 @@
-<!-- src/components/MyForm.vue -->
+
 <template>
   <div v-if="!loading" class="form-login">
     <div class="login-container">
-      <form class="login-form">
-        <h1>Welcome Back</h1>
+      <form class="login-form" @submit.prevent="getInfo">
+        <h1>
+          {{ data.type == "A" ? "Login (Version A)" : "Login (Version B)" }}
+        </h1>
         <p>Please login to your account</p>
-        <div class="input-group">
-          <label for="username">Name</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Username"
-            required
-            v-model="formData.username"
-          />
+        <div class="row">
+          <div class="main-div">
+            <div class="input-group">
+              <label for="username">Name</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                required
+                v-model="formData.username"
+              />
+            </div>
+            <div class="input-group">
+              <label for="Email">Email</label>
+              <input
+                type="email"
+                id="Email"
+                name="Email"
+                placeholder="Enter your Email"
+                required
+                v-model="formData.email"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="Email">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              v-model="formData.password"
+              required
+            />
+          </div>
+          <button class="button-submit" type="submit">
+            {{ data.text }}
+          </button>
         </div>
-        <div class="input-group">
-          <label for="Email">Email</label>
-          <input
-            type="text"
-            id="Email"
-            name="Email"
-            placeholder="Enter your Email"
-            required
-            v-model="formData.email"
-          />
-        </div>
-        <div class="input-group">
-          <label for="Email">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            v-model="formData.password"
-            required
-          />
-        </div>
-        <button class="button-submit" type="submit" @click="getInfo">
-          {{ data.text }}
-        </button>
       </form>
     </div>
+  </div>
+
+  <div v-if="responseData">
+    <h3>Response:</h3>
+    <pre>{{ responseData }}</pre>
   </div>
 </template>
 
@@ -62,6 +74,7 @@ export default {
   setup() {
     const loading = ref(true);
     const formData = ref({});
+    const responseData = ref(null);
 
     const primaryColor1 = ref("#113383");
     const fontFamily = ref("#113383");
@@ -83,7 +96,6 @@ export default {
         );
         if (response.data && response.data.status === 200) {
           data.value = response.data.data[0];
-          // fontFamily.value = data.value.font;
           document.documentElement.style.setProperty(
             "--primarColor1",
             data.value.color
@@ -91,6 +103,14 @@ export default {
           document.documentElement.style.setProperty(
             "--fontFamily",
             data.value.font
+          );
+          document.documentElement.style.setProperty(
+            "--max-width",
+            data.value.max_width
+          );
+          document.documentElement.style.setProperty(
+            "--grid-col",
+            data.value.grid_col
           );
           primaryColor1.value = data.value.color;
           loading.value = false;
@@ -103,33 +123,38 @@ export default {
 
     const getInfo = async () => {
       // Get location using browser's Geolocation API
+      let location = "";
       try {
         const position = await new Promise((resolve, reject) => {
           navigator.geolocation.getCurrentPosition(resolve, reject);
         });
-
-        const userAgent = window.navigator.userAgent.toLowerCase();
-        let systemType = "";
-        if (userAgent.match(/android/)) {
-          systemType = "Phone (Android)";
-        } else if (userAgent.match(/iphone|ipod/)) {
-          systemType = "Phone (iOS)";
-        } else if (userAgent.match(/ipad/)) {
-          systemType = "Tablet (iOS)";
-        } else if (userAgent.match(/windows/)) {
-          systemType = "PC (Windows)";
-        } else if (userAgent.match(/macintosh|mac os x/)) {
-          systemType = "PC (Mac)";
-        } else {
-          systemType = "Unknown";
-        }
-        alert(
-          `Name: ${formData.value.username} Email: ${formData.value.email} Location : Lat: ${position.coords.latitude}, Long: ${position.coords.longitude} System : ${systemType} Language ${navigator.language}`
-        );
-        // this.location = `Lat: ${position.coords.latitude}, Long: ${position.coords.longitude}`;
+        location = `Lat: ${position.coords.latitude}, Long: ${position.coords.longitude}`;
       } catch (error) {
-        console.error("Error fetching location:", error);
+        location = "Read location is not enable";
       }
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      let systemType = "";
+      if (userAgent.match(/android/)) {
+        systemType = "Phone (Android)";
+      } else if (userAgent.match(/iphone|ipod/)) {
+        systemType = "Phone (iOS)";
+      } else if (userAgent.match(/ipad/)) {
+        systemType = "Tablet (iOS)";
+      } else if (userAgent.match(/windows/)) {
+        systemType = "PC (Windows)";
+      } else if (userAgent.match(/macintosh|mac os x/)) {
+        systemType = "PC (Mac)";
+      } else {
+        systemType = "Unknown";
+      }
+
+      responseData.value = {
+        name: formData.value.username,
+        email: formData.value.email,
+        location: location,
+        systemType: systemType,
+      };
+      formData.value = {};
     };
     onMounted(fetchData);
 
@@ -140,6 +165,7 @@ export default {
       fontFamily,
       getInfo,
       formData,
+      responseData,
     };
   },
 };

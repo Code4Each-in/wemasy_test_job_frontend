@@ -1,9 +1,8 @@
 :root {
-    /* --primarColor1: #113383; */
     --primarColor2: #fff;
     --primaryColor4: #ff0000;
     --primarColor3: #000;
-    /* --fontFamily: ui-sans-serif; */
+    --width: 100%;
 }
 
 .login-form h1 {
@@ -17,7 +16,7 @@
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    max-width: 500px;
+    max-width: var(--max-width);
     width: 90%;
     text-align: center;
     margin: 0 auto;
@@ -31,6 +30,14 @@
 .login-form h1 {
     margin-bottom: 10px;
     color: var(--primarColor3);
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: var(--width);
 }
 
 .login-form p {
@@ -60,7 +67,8 @@
 .input-group label {
     font-size: 18px;
     font-weight: 600;
-    color: #113383;
+    color: var(--primarColor1);
+    ;
     padding: 0px 0px 10px;
     font-family: var(--fontFamily);
 }
@@ -114,14 +122,12 @@ button.button-submit:hover {
     padding: 70px 0px;
 }
 
-/* Responsive */
 @media screen and (max-width: 600px) {
     .login-container {
         background-color: var(--primarColor2);
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         padding: 40px;
-        /* max-width: 400px; */
         width: 90%;
         text-align: center;
         margin: 0 auto;
@@ -136,4 +142,14 @@ button.button-submit:hover {
         font-weight: 600;
         font-size: 16px;
     }
+}
+
+.main-div {
+    position: relative;
+    display: grid;
+    align-items: stretch;
+    width: 100%;
+    gap: 5px;
+    justify-content: space-between;
+    grid-template-columns: var(--grid-col);
 }
